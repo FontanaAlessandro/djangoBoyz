@@ -1,26 +1,16 @@
 {% extends 'blog/base.html' %}
-            {% block content %}
-             <article>
-            <h2><a class = "titoli" href="https://cdn-img.truckscout24.com/images-big/75/02/020370275_1653043507098_d47ee0.jpg">Trattori</a></h2>
-            <p> </p>
-            <p>Трактор, трактор куда-то мчится1<br>Трактор, трактор без тракториста<br>Трактор, тракторРабота в поле<br>Трактор, трактор<br>Эх, жизнь - раздолье<br>Ой, лебеда<br>Трактор, трактор<br>Трактор, трактор<br>Хоро-трактор<br>Психо-трактор<br>Трактор - транспорт, мотор, машина<br>От разгона дымятся шины<br>Трактор, трактор<br>За мною в поле<br>Трактор, трактор<br>Эх, жизнь - раздолье<br>Трактор, трактор<br>Трактор, трактор<br>Хоро-трактор<br>Психо-трактор<br>Трактор, трактор<br>Трактор, трактор<br>Хоро-трактор<br>Психо-трактор</p>
-        </article>
+{% block content %}
+{% for post in posts %}
+    <article class="post">
+        <time class="date">
+            {{ post.data_pubblicazione|date:"D d M Y"  }}
+        </time>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titolo }}</a></h2>
+        <p>{{post.testo|truncatewords_html:30}}</p>
+    </article>
+    {% endfor %}
 
-            <article class="post">
-            <time>published: {{ post.data_pubblicazione }}</time>
-            <h2><a href="">{{ post.titolo }}</a></h2>
-            <p>{{ post.testo|linebreaksbr }}</p>
-
-            <h2>Vendita Trattore <a href="https://d1grzqaobpv15j.cloudfront.net/pa/750-560/157563/42715772/42715772_1655107879_781.jpg?index"><em>Deutz-Fahr AGROPLUS 95 NEW</a></em></h2>
-            <ul><li>Marca: Prada</li><li>Stato: Grecia</li><li>Potenza: tanti cavalli</li><li>Velocità massima: 4000000cm/h</ul>
-            </article>
-                {% for post in posts %}
-                  <article class="post">
-                  <time class="date">
-                  {{ post.data_pubblicazione }}
-                  </time>
-                  <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titolo }}</a></h2>
-                  <p>{{ post.testo|linebreaksbr }}</p>
-                  </article>
-                {% endfor %}
-            {% endblock %}
+    <h2>Vendita Trattore <a href="https://pisa.italnolo.it/giardinaggio-pulizia-e-servizi/482-trattore-.html"><em>Deutz-Fahr AGROPLUS 95 NEW</a></em></h2>
+    <ul><li>Marca: Prada</li><li>Stato: Grecia</li><li>Potenza: tanti cavalli</li><li>Velocità massima: 4000000cm/h</ul>
+    </article>
+{% endblock %}

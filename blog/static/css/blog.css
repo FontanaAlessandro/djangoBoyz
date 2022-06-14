@@ -78,3 +78,8 @@ h4 {
     color: #FFFFFF;
     background-color: #C25100;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+}
