@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <article class="post">
+        {% if post.data_pubblicazione %}
+            <time class="date">
+                {{ post.data_pubblicazione }}
+            </time>
+        {% endif %}
+        <h2>{{ post.titolo }}</h2>
+        <p>{{ post.testo|linebreaksbr }}</p>
+    </article>
+{% endblock %}
