@@ -18,5 +18,13 @@
             <h2>Vendita Trattore <a href="https://d1grzqaobpv15j.cloudfront.net/pa/750-560/157563/42715772/42715772_1655107879_781.jpg?index"><em>Deutz-Fahr AGROPLUS 95 NEW</a></em></h2>
             <ul><li>Marca: Prada</li><li>Stato: Grecia</li><li>Potenza: tanti cavalli</li><li>Velocità massima: 4000000cm/h</ul>
         </article>
+
+        {% for post in posts %}
+        <article>
+            <h2><a href="">{{ post.titolo }}</a></h2>
+            <time>published: {{ post.data_pubblicazione }}</time>
+            <p>{{ post.testo|linebreaksbr }}</p>
+        </article>
+        {% endfor %}
     </body>
 </html>
